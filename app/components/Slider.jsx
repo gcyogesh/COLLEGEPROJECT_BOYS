@@ -1,9 +1,14 @@
 'use client'
 
+
 import React, { useState, useEffect } from 'react';
 
 const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(() => {
+    // Check for stored value in localStorage
+    const storedSlide = localStorage.getItem('currentSlide');
+    return storedSlide ? parseInt(storedSlide) : 0;
+  });
 
   // Function to move to the next slide
   const nextSlide = () => {
@@ -24,31 +29,27 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [currentSlide]);
 
+  const carouselWrapperStyle = {
+    // height: '700px', // Default height for all screens
+    // overflow: 'hidden',
+    // position: 'relative',
+    // '@media (max-width: 768px)': {  // Adjust breakpoint as needed for mobile
+    //   height: '300px', // Set a different height for mobile (adjust as needed)
+    // },
+  };
 
-//   some cssss 
-
-const carouselWrapperStyle = {
-  // height: '700px', // Default height for all screens
-  // overflow: 'hidden',
-  // position: 'relative',
-  // '@media (max-width: 768px)': {  // Adjust breakpoint as needed for mobile
-  //   height: '300px', // Set a different height for mobile (adjust as needed)
-  // },
-};
-  
   const imageStyle = {
     objectFit: 'cover', // Ensures images fill the container while maintaining aspect ratio
   };
-
 
   return (
     <div id="default-carousel" className="relative w-full" data-carousel="slide">
       {/* Carousel wrapper */}
       <div className="relative h-56 overflow-hidden md:h-96" style={carouselWrapperStyle}>
         {/* Item 1 */}
-        <div className={`duration-700 ease-in-out ${currentSlide === 0 ? 'visible' : 'invisible'}`} data-carousel-item="">
+        <div className={`duration-700 ease-in-out ${currentSlide === 0 ? 'visible' : 'invisible'}`} >
           <img
-            src="https://images.pexels.com/photos/18867922/pexels-photo-18867922/free-photo-of-kyoto-imperial-palace-garden-bridge.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            src="https://images.pexels.com/photos/18867922/pexels-photo-18867922/free-photo-of-kyoto-imperial-palace-garden-bridge.jpeg?auto=compress&cs=tinysrgb&w=600&lazy-load"
             className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="Slide 1"
             style={imageStyle}
@@ -56,9 +57,9 @@ const carouselWrapperStyle = {
           />
         </div>
         {/* Item 2 */}
-        <div className={`duration-700 ease-in-out ${currentSlide === 1 ? 'visible' : 'invisible'}`} data-carousel-item="">
+        <div className={`duration-700 ease-in-out ${currentSlide === 1 ? 'visible' : 'invisible'}`} >
           <img
-            src="https://images.pexels.com/photos/19791355/pexels-photo-19791355/free-photo-of-a-close-up-of-green-succulents-with-the-words-succulents.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            src="https://images.pexels.com/photos/19791355/pexels-photo-19791355/free-photo-of-a-close-up-of-green-succulents-with-the-words-succulents.jpeg?auto=compress&cs=tinysrgb&w=600&lazy-load"
             className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="Slide 2"
             style={imageStyle}
@@ -66,9 +67,9 @@ const carouselWrapperStyle = {
           />
         </div>
         {/* Item 3 */}
-        <div className={`duration-700 ease-in-out ${currentSlide === 2 ? 'visible' : 'invisible'}`} data-carousel-item="">
+        <div className={`duration-700 ease-in-out ${currentSlide === 2 ? 'visible' : 'invisible'}`} >
           <img
-            src="https://images.pexels.com/photos/16774962/pexels-photo-16774962/free-photo-of-couple-making-heart-shape-on-coast-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            src="https://images.pexels.com/photos/16774962/pexels-photo-16774962/free-photo-of-couple-making-heart-shape-on-coast-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy-load"
             className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="Slide 3"
             style={imageStyle}
@@ -76,7 +77,7 @@ const carouselWrapperStyle = {
           />
         </div>
         {/* Item 4 */}
-        <div className={`duration-700 ease-in-out ${currentSlide === 3 ? 'visible' : 'invisible'}`} data-carousel-item="">
+        <div className={`duration-700 ease-in-out ${currentSlide === 3 ? 'visible' : 'invisible'}`} >
           <img
             src="https://images.pexels.com/photos/15625357/pexels-photo-15625357/free-photo-of-white-flower-against-purple-background.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
             className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
@@ -86,7 +87,7 @@ const carouselWrapperStyle = {
           />
         </div>
         {/* Item 5 */}
-        <div className={`duration-700 ease-in-out ${currentSlide === 4 ? 'visible' : 'invisible'}`} data-carousel-item="">
+        <div className={`duration-700 ease-in-out ${currentSlide === 4 ? 'visible' : 'invisible'}`} >
           <img
             src="https://images.pexels.com/photos/16774962/pexels-photo-16774962/free-photo-of-couple-making-heart-shape-on-coast-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
             className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
@@ -190,3 +191,5 @@ const carouselWrapperStyle = {
 };
 
 export default Slider;
+
+
