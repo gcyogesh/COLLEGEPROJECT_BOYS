@@ -28,16 +28,15 @@ const Slider = () => {
 //   some cssss 
 
 const carouselWrapperStyle = {
-//   height: '700px', // Default height for all screens
-//   overflow: 'hidden',
-//   position: 'relative',
-//   '@media (max-width: 768px)': {  // Adjust breakpoint as needed for mobile
-//     height: '300px', // Set a different height for mobile (adjust as needed)
-//   },
+  // height: '700px', // Default height for all screens
+  // overflow: 'hidden',
+  // position: 'relative',
+  // '@media (max-width: 768px)': {  // Adjust breakpoint as needed for mobile
+  //   height: '300px', // Set a different height for mobile (adjust as needed)
+  // },
 };
   
   const imageStyle = {
-    // Adjust image styles as needed (optional)
     objectFit: 'cover', // Ensures images fill the container while maintaining aspect ratio
   };
 
