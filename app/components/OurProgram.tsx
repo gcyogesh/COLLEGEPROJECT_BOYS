@@ -2,8 +2,10 @@ import React from 'react'
 
 const OurProgram = () => {
   return (
-    <div>THis is our Program component</div>
+      <>
+       <h1>Our Program</h1>
+      </>
   )
 }
 
-export default OurProgram
+export default OurProgram 
