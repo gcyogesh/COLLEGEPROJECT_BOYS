@@ -7,7 +7,7 @@ import { faPhone, faMapMarked, faArrowRight } from '@fortawesome/free-solid-svg-
 
 const TopNav = () => {
     return (
-        <header className="bg-red-800 text-white py-2">
+        <header className="bg-red-800 text-white py-2 ">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4">
                 {/* Left side with address and phone number */}
                 <div className="flex items-center space-x-8">

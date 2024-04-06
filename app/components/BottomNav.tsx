@@ -8,11 +8,11 @@ const BottomNav = () => {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen); 
-    };
+    };  
     
 
     return (
-        <nav className="border-gray-200 bg-[rgb(255, 243, 243)] dark:bg-gray-100 dark:border-gray-700 w-full">
+        <nav className="border-gray-200 bg-[rgb(255, 243, 243)] dark:bg-gray-100 dark:border-gray-700 w-full ">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-8">
                 <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="I" className="h-8" alt="College Ko Logo" />

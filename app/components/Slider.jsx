@@ -4,11 +4,16 @@
 import React, { useState, useEffect } from 'react';
 
 const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(() => {
-    // Check for stored value in localStorage
-    const storedSlide = localStorage.getItem('currentSlide');
-    return storedSlide ? parseInt(storedSlide) : 0;
-  });
+  const [currentSlide, setCurrentSlide] = useState();
+
+  useEffect(() => {
+    // Check if localStorage is available
+    if (typeof localStorage !== 'undefined') {
+      // Retrieve the current slide from localStorage
+      const storedSlide = localStorage.getItem('currentSlide');
+      setCurrentSlide(storedSlide ? parseInt(storedSlide) : 0);
+    }
+  }, []);
 
   // Function to move to the next slide
   const nextSlide = () => {

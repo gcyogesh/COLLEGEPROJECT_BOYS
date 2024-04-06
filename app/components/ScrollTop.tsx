@@ -1,30 +1,22 @@
 'use client'
-
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-const ScrollTop = () => {
+const ScrollToTop = ({ threshold = 180 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const arrow = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window !== "undefined" && window.scrollY >= 180) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsVisible(scrollTop > threshold);
     };
 
-    // Attach scroll event listener when component mounts
     window.addEventListener("scroll", handleScroll);
 
-    // Remove scroll event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [threshold]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -34,20 +26,18 @@ const ScrollTop = () => {
   };
 
   return (
-    <div className="overflow-hidden">
-      {isVisible && (
-        <button
-          aria-label="arrow"
-          className={`fixed bottom-6 ss:bottom-10 z-30 -right-full transition-all duration-500 shadow-2xl shadow-black bg-green-800 hover:bg-[#cdcdcd] active:p-[.45rem] p-2 rounded`}
-          onClick={scrollToTop}
-          ref={arrow}
-        >
-            <h1 className=" bg-blue-700">Ay ayo ay ohai a</h1>
-          <FontAwesomeIcon className="text-xl active:text-lg text-black" icon={faArrowUp} />
-        </button>
-      )}
-    </div>
+    <button
+      ref={buttonRef}
+      onClick={scrollToTop}
+      className={`fixed bottom-6 right-6 z-50 p-3 bg-gray-700 text-white rounded-full transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+      style={{ boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      aria-label="Scroll to top"
+    >
+      <FontAwesomeIcon icon={faChevronUp} className="text-xl" />
+    </button>
   );
 };
 
-export default ScrollTop;
+export default ScrollToTop;
