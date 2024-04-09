@@ -1,6 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCertificate } from '@fortawesome/free-solid-svg-icons'
+import { faBullseye, faCertificate, faLowVision, faVectorSquare } from '@fortawesome/free-solid-svg-icons'
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import { faObjectGroup } from '@fortawesome/free-solid-svg-icons/faObjectGroup'
+
 
 type FeatureProps ={
     icon:IconDefinition,
@@ -30,25 +33,25 @@ const OurFeatures = () => {
             <div className="features-wrapper mt-10 mb-10">
                 <div className="container max-w-[1280px] mx-auto flex flex-col gap-[4rem]">
                     <div className="row text-center">
-                        <h2 className='font-bold text-3xl'>Awesome Features</h2>
-                        <p className='text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus alias consequatur sunt.</p>
+                        <h2 className='font-bold text-3xl'>Primary Goals</h2>
+                        <p className='text-lg'>A brief overview of the features or services offered.</p>
                     </div>
                     <div className="row boxes flex gap-6 flex-wrap justify-center">
                         <FeatureCard
-                         icon={faCertificate} 
-                         title="Global Certification"
+                         icon={faBullseye} 
+                         title="Our Mission"
                           description={`Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe ipsam optio necessitatibus 
                           excepturi quas minima quisquam deleniti, id expedita amet placeat maxime.`}
                            />
                         <FeatureCard
-                         icon={faCertificate} 
-                         title="Global Certification"
+                         icon={faLowVision} 
+                         title="Our Vision"
                           description={`Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe ipsam optio necessitatibus 
                           excepturi quas minima quisquam deleniti, id expedita amet placeat maxime.`}
                            />
                         <FeatureCard
-                         icon={faCertificate} 
-                         title="Global Certification"
+                         icon={faObjectGroup} 
+                         title="Our Objective"
                           description={`Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe ipsam optio necessitatibus 
                           excepturi quas minima quisquam deleniti, id expedita amet placeat maxime.`}
                            />

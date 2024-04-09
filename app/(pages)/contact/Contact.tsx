@@ -1,5 +1,5 @@
 import React from 'react'
-import Banner from '../components/Banner/Banner'
+import Banner from '@/app/components/Banner/Banner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 
